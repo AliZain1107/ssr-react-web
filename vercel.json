@@ -1,4 +1,28 @@
 {
-  "version": 3,
-  "cache": ["./api/*", "./dist/server/*", "./dist/client/*"]
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/client",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "zeroConfig": true
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "^/assets/(.*)",
+      "headers": { "cache-control": "public, max-age=31536000, immutable" },
+      "dest": "/assets/$1"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
 }
