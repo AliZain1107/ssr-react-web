@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "node server",
-    "build": "vite build && vite build --ssr src/entry-server.tsx",
-    "start": "NODE_ENV=production node server.js",
+    "build": "vite build && vite build --ssr src/entry-server.tsx --outDir dist/server",
+    "start": "cross-env NODE_ENV=production node server.js",
     "preview": "cross-env NODE_ENV=production node server"
   },
   "dependencies": {
