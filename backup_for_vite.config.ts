@@ -5,14 +5,14 @@
 // export default defineConfig({
 //   plugins: [react()],
 // })
-
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  base: '/',
   build: {
-    outDir: 'dist/client', // ✅ Puts client files in dist/client
-    emptyOutDir: false     // ✅ Keeps server build from being deleted
+    outDir: 'dist/client',
+    emptyOutDir: true
   }
 });
