@@ -1,8 +1,13 @@
 {
   "version": 3,
+  "builds": [
+    { "src": "server.js", "use": "@vercel/node" },
+    { "src": "dist/client/**", "use": "@vercel/static" }
+  ],
   "routes": [
-    { "src": "/assets/(.*)", "dest": "/client/assets/$1" },
-    { "src": "/favicon.ico", "dest": "/client/favicon.ico" },
-    { "src": "/(.*)", "dest": "/server/index.mjs" }
+    { "src": "/assets/(.*)", "dest": "dist/client/assets/$1" },
+    { "src": "/vite.svg", "dest": "dist/client/vite.svg" },
+    { "src": "/favicon.ico", "dest": "dist/client/favicon.ico" },
+    { "src": "/(.*)", "dest": "server.js" }
   ]
 }
